@@ -1,0 +1,40 @@
+————————项目地址————————
+https://github.com/ostris/ai-toolkit
+
+————————部署环境————————
+conda create -n flux-lora-ostris python=3.11 -y # 创建虚拟环境
+cd ai-toolkit # 在 ai-toolkit 文件夹下
+conda activate flux-lora-ostris # 调用该虚拟环境
+pip3 install torch # 下载依赖包
+pip3 install -r requirements.txt # 下载依赖包
+
+———————如何配置训练素材———————
+模型文件下载 https://huggingface.co/black-forest-labs/FLUX.1-dev
+需要下载所有文件共 58 g
+
+图片标注文件夹，同名图片png，同名标注txt 格式
+
+训练配置参数文件夹 lora-config.yaml
+
+lora输出文件夹
+
+————————启动训练————————
+conda activate flux-lora-ostris # 调用该虚拟环境
+# 在 ai-toolkit 文件夹下
+python run.py aaa-arg/lora-config.yaml # 启动脚本
+
+————————查看训练过程————————
+watch -n 1 nvidia-smi # 动态查看显存占用
+
+————————训练经验————————
+4090D 
+4000 step 
+batch size =1
+26张图片 1024x1024
+
+显存高峰占用 22.7g 
+训练时长 2-3h
+
+
+
+

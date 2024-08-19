@@ -1,0 +1,73 @@
+---
+job: extension
+config:
+  name: "QQ" # ——————————lora名字
+  process:
+    - type: 'sd_trainer'
+      training_folder: "/home/lingfeng/Documents/yccaaa/ai-toolkit/aaa-flux-lora-output" # ——————————lora输出的地址
+      device: cuda:0 # 单显卡or多显卡 1，2，3...
+      network:
+        type: "lora" # 训练类型 可写lycoris
+        linear: 16 # 线性层大小
+        linear_alpha: 16 # 学习率缩放，越大学习越困难
+      save:
+        dtype: float16 # 保存使用的数据类型
+        save_every: 250 # 每多少步保存一次
+        max_step_saves_to_keep: 4 # 最多保存多少个lora模型，会自动删除最旧的模型
+      datasets:
+        - folder_path: "/home/lingfeng/Documents/yccaaa/ai-toolkit/aaa-picture-data" # ——————————数据集路径
+          caption_ext: "txt" # 数据集标准后缀
+          caption_dropout_rate: 0.05  # dropout随机归零几率
+          shuffle_tokens: false  # 是否打乱tag中的词序
+          cache_latents_to_disk: true  # 将生成的前空间latent保存在磁盘而不是内存中
+          resolution: [ 512, 768, 1024 ]  # 分辨率支持
+      train:
+        batch_size: 1 # 批次大小
+        steps: 4000  # 训练总步数，500-4000
+        gradient_accumulation_steps: 1 # 累计多少步更新一次参数
+        train_unet: true # 是否训练unet模型
+        train_text_encoder: false  # 是否训练clip，flux不支持
+        content_or_style: balanced  # 内容或风格的权衡
+        gradient_checkpointing: true  # 是否使用梯度检查点保存，节省显存
+        noise_scheduler: "flowmatch" # 训练时候添加噪声的调度器
+        optimizer: "adamw8bit" # 优化器类型
+        lr: 4e-4 # 学习率
+        # skip_first_sample: true # 预训练样本生成
+
+        ema_config:
+          use_ema: true # 启用ema，平滑学习过程，
+          ema_decay: 0.99 # ema衰减率
+
+        dtype: bf16 # 训练数据类型
+      model:
+        name_or_path: "/home/lingfeng/Documents/yccaaa/ai-toolkit/aaa-flux-dev" # ——————————底模路径
+        is_flux: true # 是否为flux模型
+        quantize: true # 启用8bit量化
+        low_vram: true # 开启低显存占用
+      sample:
+        sampler: "flowmatch" # 采样器，必须与训练中noise_scheduler相同
+        sample_every: 250 # 每间隔多少步生成一次样本
+        width: 1024 # 图像宽度
+        height: 1024 # 图像高度
+        prompts:
+          - "woman with red hair, playing chess at the park, bomb going off in the background"
+          - "a woman holding a coffee cup, in a beanie, sitting at a cafe"
+          - "a horse is a DJ at a night club, fish eye lens, smoke machine, lazer lights, holding a martini"
+          - "a man showing off his cool new t shirt at the beach, a shark is jumping out of the water in the background"
+          - "a bear building a log cabin in the snow covered mountains"
+          - "woman playing the guitar, on stage, singing a song, laser lights, punk rocker"
+          - "hipster man with a beard, building a chair, in a wood shop"
+          - "photo of a man, white background, medium shot, modeling clothing, studio lighting, white backdrop"
+          - "a man holding a sign that says, 'this is a sign'"
+          - "a bulldog, in a post apocalyptic world, with a shotgun, in a leather jacket, in a desert, with a motorcycle"
+        neg: ""  # flux没有负面提示词
+        seed: 42
+        walk_seed: true
+        guidance_scale: 4 # cfg
+        sample_steps: 10 # 出图推理步数
+meta:
+  name: "[name]"
+  version: '1.0'
+
+
+
