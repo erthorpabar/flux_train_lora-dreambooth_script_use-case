@@ -1,5 +1,6 @@
 ————————项目地址————————
 https://github.com/ostris/ai-toolkit
+git clone https://github.com/ostris/ai-toolkit.git # 下载项目或手动下载
 
 ————————部署环境————————
 conda create -n flux-lora-ostris python=3.11 -y # 创建虚拟环境
