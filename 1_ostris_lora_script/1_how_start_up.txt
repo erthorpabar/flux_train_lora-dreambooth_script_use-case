@@ -22,7 +22,7 @@ pip3 install -r requirements.txt # 下载依赖包
 ————————启动训练————————
 conda activate flux-lora-ostris # 调用该虚拟环境
 # 在 ai-toolkit 文件夹下
-python run.py aaa-arg/lora-config.yaml # 启动脚本
+python run.py aaa-arg/lora-config.yaml # 带config启动脚本
 
 ————————查看训练过程————————
 watch -n 1 nvidia-smi # 动态查看显存占用
