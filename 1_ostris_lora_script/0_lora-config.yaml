@@ -1,11 +1,12 @@
 ---
 job: extension
 config:
-  name: "QQ" # ——————————lora名字
+  name: "QQQ" # ——————————lora名字
   process:
     - type: 'sd_trainer'
       training_folder: "/home/lingfeng/Documents/yccaaa/ai-toolkit/aaa-flux-lora-output" # ——————————lora输出的地址
-      device: cuda:0 # 单显卡or多显卡 1，2，3...
+      device: cuda:0 # 多显卡 1，2，3...
+      trigger_word: "QQQ" # 触发词
       network:
         type: "lora" # 训练类型 可写lycoris
         linear: 16 # 线性层大小
@@ -49,17 +50,17 @@ config:
         sample_every: 250 # 每间隔多少步生成一次样本
         width: 1024 # 图像宽度
         height: 1024 # 图像高度
-        prompts:
-          - "woman with red hair, playing chess at the park, bomb going off in the background"
-          - "a woman holding a coffee cup, in a beanie, sitting at a cafe"
-          - "a horse is a DJ at a night club, fish eye lens, smoke machine, lazer lights, holding a martini"
-          - "a man showing off his cool new t shirt at the beach, a shark is jumping out of the water in the background"
-          - "a bear building a log cabin in the snow covered mountains"
-          - "woman playing the guitar, on stage, singing a song, laser lights, punk rocker"
-          - "hipster man with a beard, building a chair, in a wood shop"
-          - "photo of a man, white background, medium shot, modeling clothing, studio lighting, white backdrop"
-          - "a man holding a sign that says, 'this is a sign'"
-          - "a bulldog, in a post apocalyptic world, with a shotgun, in a leather jacket, in a desert, with a motorcycle"
+        prompts: # [tigger] 加入触发词
+          - "[tigger] woman with red hair, playing chess at the park, bomb going off in the background"
+          - "[tigger] a woman holding a coffee cup, in a beanie, sitting at a cafe"
+          - "[tigger] a horse is a DJ at a night club, fish eye lens, smoke machine, lazer lights, holding a martini"
+          - "[tigger] a man showing off his cool new t shirt at the beach, a shark is jumping out of the water in the background"
+          - "[tigger] a bear building a log cabin in the snow covered mountains"
+          - "[tigger] woman playing the guitar, on stage, singing a song, laser lights, punk rocker"
+          - "[tigger] hipster man with a beard, building a chair, in a wood shop"
+          - "[tigger] photo of a man, white background, medium shot, modeling clothing, studio lighting, white backdrop"
+          - "[tigger] a man holding a sign that says, 'this is a sign'"
+          - "[tigger] a bulldog, in a post apocalyptic world, with a shotgun, in a leather jacket, in a desert, with a motorcycle"
         neg: ""  # flux没有负面提示词
         seed: 42
         walk_seed: true
