@@ -21,7 +21,7 @@ config:
           caption_dropout_rate: 0.05  # dropout随机归零几率
           shuffle_tokens: false  # 是否打乱tag中的词序
           cache_latents_to_disk: true  # 将生成的前空间latent保存在磁盘而不是内存中
-          resolution: [ 512, 768, 1024 ]  # 分辨率支持
+          resolution: [ 512, 768, 1024 ]  # 分辨率支持，脚本会自动切分
       train:
         batch_size: 1 # 批次大小
         steps: 4000  # 训练总步数，500-4000
