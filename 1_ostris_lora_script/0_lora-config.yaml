@@ -53,7 +53,7 @@ config:
         prompts: # [tigger] 加入触发词 也可以手动加入触发词
           # 人像
           - "1 girl,black beret,Long golden hair,Black turtleneck sweater,white pants,"
-          - "taluoaaa,1 girl, solo, long hair, breasts, looking at viewer, blush, smile, blue eyes, shirt, skirt, hair ornament, gloves, bow, navel, animal ears, hair between eyes, bare shoulders, medium breasts, brown eyes, standing, collarbone, full body, yellow eyes, flower, short sleeves, pantyhose, pleated skirt, parted lips, boots, horns, detached sleeves, green hair, black gloves, choker, virtual youtuber, puffy sleeves, midriff, hair flower, black footwear, crop top, puffy short sleeves, heterochromia, black background, crown, knee boots, green skirt, cross-laced footwear, brown pantyhose, antlers, lace-up boots, mini crown, tilted headwear, reindeer antlers, deer ears,"
+          - "1 girl, solo, long hair, breasts, looking at viewer, blush, smile, blue eyes, shirt, skirt, hair ornament, gloves, bow, navel, animal ears, hair between eyes, bare shoulders, medium breasts, brown eyes, standing, collarbone, full body, yellow eyes, flower, short sleeves, pantyhose, pleated skirt, parted lips, boots, horns, detached sleeves, green hair, black gloves, choker, virtual youtuber, puffy sleeves, midriff, hair flower, black footwear, crop top, puffy short sleeves, heterochromia, black background, crown, knee boots, green skirt, cross-laced footwear, brown pantyhose, antlers, lace-up boots, mini crown, tilted headwear, reindeer antlers, deer ears,"
 
           # 场景
           - "the morning light,Overhead shot, Side shot,White carpet,black chair, white lamp, transparent white curtain, bookshelf, book, beige sofa, pillow,no people,The book is on the carpet,White floor, light through the curtains,"
