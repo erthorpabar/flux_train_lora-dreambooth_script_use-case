@@ -1,12 +1,12 @@
 ---
 job: extension
 config:
-  name: "QQQ" # ——————————lora名字
+  name: "ditan" # ——————————lora名字
   process:
     - type: 'sd_trainer'
       training_folder: "/home/lingfeng/Documents/yccaaa/ai-toolkit/aaa-flux-lora-output" # ——————————lora输出的地址
       device: cuda:0 # 多显卡 1，2，3...
-      trigger_word: "QQQ" # 触发词
+      # trigger_word: "QQQ" # 触发词
       network:
         type: "lora" # 训练类型 可写lycoris
         linear: 16 # 线性层大小
@@ -16,12 +16,12 @@ config:
         save_every: 250 # 每多少步保存一次
         max_step_saves_to_keep: 20 # 最多保存多少个lora模型，会自动删除最旧的模型
       datasets:
-        - folder_path: "/home/lingfeng/Documents/yccaaa/ai-toolkit/aaa-picture-data" # ——————————数据集路径
+        - folder_path: "/home/lingfeng/Documents/yccaaa/ai-toolkit/aaa-picture-data/jiaju" # ——————————数据集路径
           caption_ext: "txt" # 数据集标准后缀
           caption_dropout_rate: 0.05  # dropout随机归零几率
           shuffle_tokens: false  # 是否打乱tag中的词序
           cache_latents_to_disk: true  # 将生成的前空间latent保存在磁盘而不是内存中
-          resolution: [ 512, 768, 1024 ]  # 分辨率支持，脚本会自动切分
+          resolution: [ 512, 768, 1024 ]  # 分辨率支持
       train:
         batch_size: 1 # 批次大小
         steps: 4000  # 训练总步数，500-4000
@@ -50,17 +50,30 @@ config:
         sample_every: 250 # 每间隔多少步生成一次样本
         width: 1024 # 图像宽度
         height: 1024 # 图像高度
-        prompts: # [tigger] 加入触发词
-          - "[tigger] woman with red hair, playing chess at the park, bomb going off in the background"
-          - "[tigger] a woman holding a coffee cup, in a beanie, sitting at a cafe"
-          - "[tigger] a horse is a DJ at a night club, fish eye lens, smoke machine, lazer lights, holding a martini"
-          - "[tigger] a man showing off his cool new t shirt at the beach, a shark is jumping out of the water in the background"
-          - "[tigger] a bear building a log cabin in the snow covered mountains"
-          - "[tigger] woman playing the guitar, on stage, singing a song, laser lights, punk rocker"
-          - "[tigger] hipster man with a beard, building a chair, in a wood shop"
-          - "[tigger] photo of a man, white background, medium shot, modeling clothing, studio lighting, white backdrop"
-          - "[tigger] a man holding a sign that says, 'this is a sign'"
-          - "[tigger] a bulldog, in a post apocalyptic world, with a shotgun, in a leather jacket, in a desert, with a motorcycle"
+        prompts: # [tigger] 加入触发词 也可以手动加入触发词
+          # 人像
+          - "1 girl,black beret,Long golden hair,Black turtleneck sweater,white pants,"
+          - "taluoaaa,1 girl, solo, long hair, breasts, looking at viewer, blush, smile, blue eyes, shirt, skirt, hair ornament, gloves, bow, navel, animal ears, hair between eyes, bare shoulders, medium breasts, brown eyes, standing, collarbone, full body, yellow eyes, flower, short sleeves, pantyhose, pleated skirt, parted lips, boots, horns, detached sleeves, green hair, black gloves, choker, virtual youtuber, puffy sleeves, midriff, hair flower, black footwear, crop top, puffy short sleeves, heterochromia, black background, crown, knee boots, green skirt, cross-laced footwear, brown pantyhose, antlers, lace-up boots, mini crown, tilted headwear, reindeer antlers, deer ears,"
+
+          # 场景
+          - "the morning light,Overhead shot, Side shot,White carpet,black chair, white lamp, transparent white curtain, bookshelf, book, beige sofa, pillow,no people,The book is on the carpet,White floor, light through the curtains,"
+
+          # 人像 + 动作 + 场景
+          - "1 girl,black beret,Long golden hair,Black turtleneck sweater,white pants,run,in the street,"
+          - "1 girl, solo, long hair, breasts, looking at viewer, blush, smile, blue eyes, shirt, skirt, hair ornament, gloves, bow, navel, animal ears, hair between eyes, bare shoulders, medium breasts, brown eyes, standing, collarbone, full body, yellow eyes, flower, short sleeves, pantyhose, pleated skirt, parted lips, boots, horns, detached sleeves, green hair, black gloves, choker, virtual youtuber, puffy sleeves, midriff, hair flower, black footwear, crop top, puffy short sleeves, heterochromia, black background, crown, knee boots, green skirt, cross-laced footwear, brown pantyhose, antlers, lace-up boots, mini crown, tilted headwear, reindeer antlers, deer ears,run,in the street,"
+          - "a woman holding a coffee cup, in a beanie, sitting at a cafe"
+
+          
+          # - "[tigger] woman with red hair, playing chess at the park, bomb going off in the background"
+          # - "[tigger] a woman holding a coffee cup, in a beanie, sitting at a cafe"
+          # - "[tigger] a horse is a DJ at a night club, fish eye lens, smoke machine, lazer lights, holding a martini"
+          # - "[tigger] a man showing off his cool new t shirt at the beach, a shark is jumping out of the water in the background"
+          # - "[tigger] a bear building a log cabin in the snow covered mountains"
+          # - "[tigger] woman playing the guitar, on stage, singing a song, laser lights, punk rocker"
+          # - "[tigger] hipster man with a beard, building a chair, in a wood shop"
+          # - "[tigger] photo of a man, white background, medium shot, modeling clothing, studio lighting, white backdrop"
+          # - "[tigger] a man holding a sign that says, 'this is a sign'"
+          # - "[tigger] a bulldog, in a post apocalyptic world, with a shotgun, in a leather jacket, in a desert, with a motorcycle"
         neg: ""  # flux没有负面提示词
         seed: 42
         walk_seed: true
