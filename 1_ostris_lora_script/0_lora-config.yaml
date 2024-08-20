@@ -14,7 +14,7 @@ config:
       save:
         dtype: float16 # 保存使用的数据类型
         save_every: 250 # 每多少步保存一次
-        max_step_saves_to_keep: 4 # 最多保存多少个lora模型，会自动删除最旧的模型
+        max_step_saves_to_keep: 20 # 最多保存多少个lora模型，会自动删除最旧的模型
       datasets:
         - folder_path: "/home/lingfeng/Documents/yccaaa/ai-toolkit/aaa-picture-data" # ——————————数据集路径
           caption_ext: "txt" # 数据集标准后缀
