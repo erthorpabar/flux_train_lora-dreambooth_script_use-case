@@ -51,17 +51,24 @@ config:
         width: 1024 # 图像宽度
         height: 1024 # 图像高度
         prompts: # [tigger] 加入触发词 也可以手动加入触发词
-          # 人像
+          # 纯人像
           - "1 girl,black beret,Long golden hair,Black turtleneck sweater,white pants,"
           - "1 girl, solo, long hair, breasts, looking at viewer, blush, smile, blue eyes, shirt, skirt, hair ornament, gloves, bow, navel, animal ears, hair between eyes, bare shoulders, medium breasts, brown eyes, standing, collarbone, full body, yellow eyes, flower, short sleeves, pantyhose, pleated skirt, parted lips, boots, horns, detached sleeves, green hair, black gloves, choker, virtual youtuber, puffy sleeves, midriff, hair flower, black footwear, crop top, puffy short sleeves, heterochromia, black background, crown, knee boots, green skirt, cross-laced footwear, brown pantyhose, antlers, lace-up boots, mini crown, tilted headwear, reindeer antlers, deer ears,"
+          - "1 teenager girl,Ivory White hime_cut,Black jacket,Beige bloomers,"
+          - "Middle age female,Ivory White drill_hair,Black down_jacket,Apricot suspender_shorts,"
+          - "1 boy,White short_hair,Light Grey shirt,Apricot jeans,"
+          - "old age grandpa,White short_hair,Light Grey shirt,Apricot jeans,"
 
-          # 场景
+
+          # 纯场景
           - "the morning light,Overhead shot, Side shot,White carpet,black chair, white lamp, transparent white curtain, bookshelf, book, beige sofa, pillow,no people,The book is on the carpet,White floor, light through the curtains,"
 
           # 人像 + 动作 + 场景
-          - "1 girl,black beret,Long golden hair,Black turtleneck sweater,white pants,run,in the street,"
+          - "1 girl,black beret,Long golden hair,Black turtleneck sweater,white pants,run,in the street,hold a coffee in hand"
           - "1 girl, solo, long hair, breasts, looking at viewer, blush, smile, blue eyes, shirt, skirt, hair ornament, gloves, bow, navel, animal ears, hair between eyes, bare shoulders, medium breasts, brown eyes, standing, collarbone, full body, yellow eyes, flower, short sleeves, pantyhose, pleated skirt, parted lips, boots, horns, detached sleeves, green hair, black gloves, choker, virtual youtuber, puffy sleeves, midriff, hair flower, black footwear, crop top, puffy short sleeves, heterochromia, black background, crown, knee boots, green skirt, cross-laced footwear, brown pantyhose, antlers, lace-up boots, mini crown, tilted headwear, reindeer antlers, deer ears,run,in the street,"
           - "a woman holding a coffee cup, in a beanie, sitting at a cafe"
+          - "1 boy,White short_hair,Light Grey shirt,Apricot jeans,run,in the street,hold a coffee in hand"
+          
 
           
           # - "[tigger] woman with red hair, playing chess at the park, bomb going off in the background"
@@ -78,7 +85,7 @@ config:
         seed: 42
         walk_seed: true
         guidance_scale: 4 # cfg
-        sample_steps: 10 # 出图推理步数
+        sample_steps: 12 # 出图推理步数
 meta:
   name: "[name]"
   version: '1.0'
